@@ -4,10 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#05070d">
-  <meta name="description" content="A MM Soluções e Sites cria experiências digitais e sites profissionais para empresas que querem crescer.">
+  <meta name="description" content="A MM Soluções e Sites desenvolve sites profissionais, páginas responsivas e soluções digitais para empresas. Conheça os planos e solicite um orçamento.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MM Soluções e Sites | Seu negócio merece uma presença digital forte">
+  <meta property="og:description" content="Sites profissionais, design responsivo e soluções digitais para sua empresa crescer.">
+  <meta property="og:url" content="https://mm-solucoes-e-sites.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="mm.png">
   <link rel="apple-touch-icon" href="mm.png">
-  <title>MM Soluções e Sites | Tecnologia que conecta</title>
+  <title>MM Soluções e Sites | Sites profissionais para empresas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,9 +38,73 @@ a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--m
     @media(max-width:650px){.topbar{height:72px}.brand-logo{width:39px;height:39px}.brand-name{font-size:15px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:71px;left:0;right:0;padding:20px 5%;background:#080e18;border-bottom:1px solid #1d3048;flex-direction:column;align-items:stretch;gap:18px}.nav.open{display:flex}.nav .nav-cta{text-align:center}.hero{grid-template-columns:1fr;padding-top:75px;padding-bottom:50px;gap:5px;min-height:auto}.hero h1{font-size:48px;letter-spacing:-2.8px}.hero-copy>p{font-size:13px}.tech-visual{height:340px;margin-top:10px}.glow-ring{width:270px;height:270px}.device-screen{min-height:215px}.device-screen h3{font-size:25px}.chip-one{right:-2px;top:20px}.chip-two{left:-2px;bottom:15px}.ticker{gap:17px;padding:20px 5%;font-size:9px}.section{padding:72px 0}.section-head h2,.portfolio h2,.cta h2{font-size:35px}.service-grid{gap:10px}.service-card{padding:17px;min-height:190px}.service-card h3{font-size:14px}.plan-grid{grid-template-columns:1fr;gap:15px}.plan-card{padding:24px}.portfolio{grid-template-columns:1fr;gap:30px}.portfolio-visual{height:270px}.cta{padding:30px 24px;display:block}.cta-actions{margin-top:25px}.footer{justify-content:center;text-align:center;flex-direction:column}.hero-meta{gap:12px}}
     @media(max-width:760px){.data-grid{grid-template-columns:1fr;gap:25px}.service-card:nth-child(5){grid-column:auto}.data-band{padding:55px 0}.mini-dashboard{max-width:520px;width:100%;margin:auto}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+    /* MM Soluções e Sites — refinamento visual */
+    :root { --max: 1200px; }
+    ::selection { background: #1685ff; color: #fff; }
+    .skip-link { position: fixed; top: 10px; left: 10px; z-index: 1000; padding: 12px 16px; border-radius: 8px; background: #1685ff; color: white; transform: translateY(-150%); }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    .topbar { box-shadow: 0 8px 35px #0003; }
+    .brand-logo { transition: transform .25s ease, filter .25s ease; }
+    .brand:hover .brand-logo { transform: rotate(-5deg) scale(1.06); filter: drop-shadow(0 0 12px #168cff66); }
+    .hero { isolation: isolate; }
+    .hero h1 { max-width: 700px; }
+    .hero-copy>p { font-size: 15.5px; }
+    .tech-visual { perspective: 1000px; }
+    .device { transition: transform .45s ease, box-shadow .45s ease; }
+    .tech-visual:hover .device { transform: rotate(0) translateY(-5px); box-shadow: 0 32px 100px #000c, 0 0 65px #087bff38; }
+    .service-card, .plan-card { backdrop-filter: blur(8px); }
+    .service-card:focus-within, .service-card:hover { transform: translateY(-7px); }
+    .plan-card { display: flex; flex-direction: column; }
+    .plan-card ul { flex: 1; }
+    .plan-select { min-height: 46px; }
+    .plan-card.featured { transform: translateY(-5px); }
+    .plan-card.featured:hover { transform: translateY(-10px); }
+    .selected-plan { line-height: 1.65; }
+    .data-band { isolation: isolate; }
+    .mini-dashboard { transition: transform .35s ease, box-shadow .35s ease; }
+    .mini-dashboard:hover { transform: translateY(-4px); box-shadow: 0 28px 75px #0009, 0 0 55px #087bff25; }
+    .cta { position: relative; overflow: hidden; }
+    .cta:after { content:""; position:absolute; width:240px; height:240px; right:-90px; bottom:-150px; border-radius:50%; background:#168cff25; filter:blur(35px); pointer-events:none; }
+    .cta > * { position: relative; z-index:1; }
+    .footer { line-height:1.7; }
+    .back-top { position:fixed; right:22px; bottom:22px; z-index:30; width:46px; height:46px; display:grid; place-items:center; border:1px solid #287cc2; border-radius:50%; background:#0b1b2eeb; color:#eaf7ff; font-size:20px; box-shadow:0 8px 28px #0008; opacity:0; visibility:hidden; transform:translateY(10px); transition:.25s; }
+    .back-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
+    .back-top:hover { background:#126ed0; transform:translateY(-3px); }
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+    .reveal.is-visible { opacity:1; transform:translateY(0); }
+    @media(max-width:900px) {
+      .plan-card.featured { transform:none; }
+      .plan-card.featured:hover { transform:translateY(-5px); }
+    }
+    @media(max-width:650px) {
+      .hero h1 { font-size:clamp(39px,11vw,50px); }
+      .hero-meta { font-size:9px; }
+      .data-grid h2 { letter-spacing:-1.2px; }
+      .cta { margin-bottom:50px; }
+      .back-top { right:14px; bottom:14px; width:42px; height:42px; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .reveal { opacity:1; transform:none; transition:none; }
+      .device, .brand-logo, .back-top { transition:none; }
+    }
+
+
+    .process-section { padding-top: 75px; padding-bottom: 85px; }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .process-step { min-height:190px; padding:23px; border:1px solid var(--line); border-radius:10px; background:linear-gradient(145deg,#0c1625,#080d16); position:relative; overflow:hidden; }
+    .process-step:after { content:""; position:absolute; width:95px; height:95px; right:-48px; bottom:-48px; border-radius:50%; background:#087bff24; filter:blur(22px); }
+    .process-step > span { display:inline-grid; place-items:center; width:35px; height:35px; border-radius:8px; background:#0b2948; border:1px solid #1b5d92; color:#65caff; font:700 12px 'Space Grotesk'; }
+    .process-step h3 { font-size:15px; margin:19px 0 8px; }
+    .process-step p { color:#91a1b7; font-size:11px; line-height:1.7; margin:0; }
+    @media(max-width:900px) { .process-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:520px) { .process-grid { grid-template-columns:1fr; } .process-step { min-height:0; } }
+
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
   <header class="topbar"><div class="wrap nav-wrap">
     <a class="brand" href="#inicio" aria-label="MM Soluções e Sites - início"><img class="brand-logo" src="mm.png" alt="Logo MM Soluções e Sites"><span class="brand-name">MM <small>SOLUÇÕES E SITES</small></span></a>
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
@@ -50,6 +120,20 @@ a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--m
     <section class="section wrap" id="servicos"><div class="section-head"><span class="eyebrow">O que fazemos</span><h2>Soluções digitais para <span class="gradient-text">ir além do básico.</span></h2><p>Unimos criatividade, tecnologia e estratégia para apresentar sua empresa com qualidade em todos os dispositivos.</p></div>
       <div class="service-grid"><article class="service-card"><div class="service-icon">⌘</div><h3>Sites profissionais</h3><p>Apresente sua empresa, seus serviços e seus diferenciais com uma presença online forte.</p></article><article class="service-card"><div class="service-icon">◈</div><h3>Design responsivo</h3><p>Experiência moderna e fácil de usar em celulares, tablets e computadores.</p></article><article class="service-card"><div class="service-icon">↗</div><h3>Presença digital</h3><p>Estrutura organizada para divulgar seu negócio e facilitar o contato com seus clientes.</p></article><article class="service-card"><div class="service-icon">⚙</div><h3>Manutenção opcional</h3><p>Suporte e atualizações para manter seu site em evolução depois da publicação.</p></article><article class="service-card"><div class="service-icon">▥</div><h3>Painéis de vendas</h3><p>Dashboards personalizados para visualizar faturamento, pedidos e indicadores do negócio.</p></article><article class="service-card"><div class="service-icon">▣</div><h3>Sistemas para empresas</h3><p>Funcionalidades sob medida para organizar dados, clientes e processos da sua operação.</p></article></div>
     </section>
+
+    <section class="section wrap process-section" aria-labelledby="process-title">
+      <div class="section-head center">
+        <span class="eyebrow">Como tiramos sua ideia do papel</span>
+        <h2 id="process-title">Do primeiro contato ao <span class="gradient-text">site publicado.</span></h2>
+        <p>Um caminho simples para transformar as necessidades da sua empresa em uma presença digital profissional.</p>
+      </div>
+      <div class="process-grid">
+        <article class="process-step"><span>01</span><h3>Entendemos seu negócio</h3><p>Conversamos sobre sua empresa, seu público e o que o site precisa comunicar.</p></article>
+        <article class="process-step"><span>02</span><h3>Planejamos a experiência</h3><p>Organizamos as informações e definimos uma apresentação alinhada à sua marca.</p></article>
+        <article class="process-step"><span>03</span><h3>Desenvolvemos o projeto</h3><p>Criamos uma experiência responsiva, pensada para celular, tablet e computador.</p></article>
+        <article class="process-step"><span>04</span><h3>Publicamos sua presença</h3><p>Com o projeto aprovado, preparamos a publicação e orientamos os próximos passos.</p></article>
+      </div>
+    </section>
     <section class="plans section" id="planos"><div class="wrap"><div class="section-head center"><span class="eyebrow">Planos e soluções</span><h2>Escolha o nível ideal para <span class="gradient-text">o seu próximo passo.</span></h2><p>Selecione um plano para demonstrar seu interesse. Podemos ajustar o projeto conforme as necessidades da sua empresa.</p></div>
       <div class="plan-grid">
         <article class="plan-card"><span class="plan-label">PARA COMEÇAR</span><h3>Básico</h3><p class="plan-desc">O essencial para apresentar sua empresa na internet.</p><div class="price">R$ 199 <small>pagamento único*</small></div><ul><li>Site de apresentação</li><li>Informações da empresa</li><li>Contato por e-mail</li><li>Layout adaptado para celular</li></ul><button class="btn plan-select" type="button" data-plan="Básico" aria-pressed="false">Selecionar plano ↗</button><p class="maintenance">Manutenção opcional: R$ 99/mês</p></article>
@@ -61,12 +145,37 @@ a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--m
     <section class="cta wrap" id="contato"><div><span class="eyebrow">Vamos criar algo novo?</span><h2>Sua próxima ideia começa <span class="gradient-text">com uma conversa.</span></h2><p>Conte para a gente o que sua empresa precisa. Vamos pensar no melhor caminho.</p></div><div class="cta-actions"><a class="btn btn-primary" id="email-cta" href="mailto:mmrptec@gmail.com?subject=Or%C3%A7amento%20-%20MM%20Solu%C3%A7%C3%B5es%20e%20Sites">Enviar e-mail para a MM ↗</a><small>mmrptec@gmail.com</small></div></section>
   </main>
   <footer class="footer"><a class="brand" href="#inicio"><img class="brand-logo" src="mm.png" alt="Logo MM Soluções e Sites"><span class="brand-name">MM <small>SOLUÇÕES E SITES</small></span></a><span>Tecnologia e criatividade para sua presença digital.</span><span>© <span id="year"></span> MM Soluções e Sites</span></footer>
+  <a class="back-top" href="#inicio" aria-label="Voltar ao topo">↑</a>
   <script>
     const menuButton=document.querySelector('.menu-toggle');
     const navigation=document.querySelector('.nav');
     menuButton?.addEventListener('click',()=>{const opened=navigation.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));menuButton.setAttribute('aria-label',opened?'Fechar menu':'Abrir menu');});
     navigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navigation.classList.remove('open');menuButton?.setAttribute('aria-expanded','false');}));
     document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Entrada suave dos blocos conforme aparecem na tela.
+    const revealTargets = document.querySelectorAll(
+      '.section-head, .service-card, .process-step, .plan-card, .portfolio, .data-grid, .cta'
+    );
+    revealTargets.forEach(element => element.classList.add('reveal'));
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealTargets.forEach(element => revealObserver.observe(element));
+    } else {
+      revealTargets.forEach(element => element.classList.add('is-visible'));
+    }
+
+    const backTop = document.querySelector('.back-top');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
     const planButtons=document.querySelectorAll('.plan-select');
     const selectedMessage=document.getElementById('selected-plan');
     const emailButton=document.getElementById('email-cta');
