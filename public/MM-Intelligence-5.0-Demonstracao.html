@@ -1,0 +1,732 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MM Intelligence 5.0 | Demonstração TypeScript</title><meta name="color-scheme" content="dark light"><style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;background:#081622;color:#f5fbff;--bg:#081622;--pane:#102536;--pane2:#153144;--muted:#abc6d1;--stroke:#31586a;--mint:#4ee8c6;--ink:#f5fbff}body.light{color-scheme:light;background:#eaf2f6;color:#142e41;--bg:#eaf2f6;--pane:#fff;--pane2:#f0f7f9;--muted:#456377;--stroke:#adcbd8;--mint:#087c70;--ink:#142e41}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--mint);outline-offset:2px}button:disabled{opacity:.45}button:hover{filter:brightness(1.11)}.app{display:flex;min-height:100vh}.sidebar{width:236px;flex:none;background:var(--pane);border-right:1px solid var(--stroke);padding:24px 13px;display:flex;flex-direction:column;gap:24px}.brand{display:flex;align-items:center;gap:9px;padding:0 8px}.brand>span{background:#0d5757;color:#b6fff0;border:1px solid #57e3cb;border-radius:12px;display:grid;place-items:center;width:42px;height:42px;font-weight:900}.brand strong{font-size:16px;line-height:1.2}.brand small{display:block;font-size:9px;letter-spacing:1.6px;color:var(--muted);margin-top:6px}.workspace{padding:15px;border:1px solid var(--stroke);border-radius:13px;background:var(--pane2);font-size:12px}.workspace small{display:block;color:var(--mint);letter-spacing:1px;margin-bottom:8px;font-size:10px;font-weight:900}.menu{display:flex;flex-direction:column;gap:5px}.menu button{background:transparent;border:1px solid transparent;color:var(--muted);padding:12px 14px;text-align:left;border-radius:9px;font-weight:700;font-size:12px}.menu button.is-current{background:var(--pane2);border-color:var(--mint);color:var(--ink)}.sidebottom{margin-top:auto;font-size:10px;color:var(--muted);border-top:1px solid var(--stroke);padding-top:15px;line-height:1.6}.main{flex:1;min-width:0}.header{min-height:91px;background:var(--pane);border-bottom:1px solid var(--stroke);display:flex;align-items:center;justify-content:space-between;padding:16px 30px;gap:20px}.title small,.eyebrow{font-size:10px;font-weight:900;letter-spacing:1.6px;color:var(--mint)}.header h1{font-size:24px;margin:4px 0 0;letter-spacing:-.7px}.topright{display:flex;align-items:center;gap:11px}.clock{text-align:right}.clock b{font-size:16px}.clock small{display:block;color:var(--muted);font-size:10px;text-transform:capitalize}.profile{display:flex;align-items:center;gap:9px;border:1px solid var(--stroke);background:var(--pane2);border-radius:50px;padding:5px 12px}.profile .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#0e7167;color:#fff;font-weight:900}.profile strong{font-size:11px}.theme{border:1px solid var(--stroke);background:var(--pane2);color:var(--ink);border-radius:10px;min-height:39px;padding:9px}.content{padding:26px 30px 35px;max-width:1550px;margin:auto}.alert{padding:10px 15px;border:1px solid var(--stroke);border-radius:9px;background:var(--pane);color:var(--muted);font-size:11px;margin-bottom:20px}.intro{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.intro h2{font-size:28px;margin:8px 0;letter-spacing:-1px}.intro p{font-size:13px;color:var(--muted);max-width:750px}.pill{display:inline-flex;align-items:center;border:1px solid var(--mint);border-radius:30px;color:var(--mint);font-size:11px;padding:7px 10px;white-space:nowrap}.roomgrid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px}.stagebox,.card{background:var(--pane);border:1px solid var(--stroke);border-radius:17px;overflow:hidden}.stagebox{min-width:0}.stageheader{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid var(--stroke)}.stageheader strong{font-size:13px}.stageheader small{font-size:10px;color:var(--muted)}.controls{display:flex;gap:4px;flex-wrap:wrap}.controls button{padding:7px 10px;background:var(--pane2);color:var(--ink);border:1px solid var(--stroke);border-radius:8px;font-size:10px}.stage{position:relative;height:clamp(460px,50vw,620px);background:#071621;overflow:hidden}.stage .mm-studio-3d{position:absolute;inset:0;width:100%;height:100%;background:#071621}.stage .mm3d-canvas{display:block;width:100%;height:100%;touch-action:none}.badge3d{position:absolute;top:12px;left:13px;border:1px solid #3b6f7d;background:#061724cf;padding:8px 11px;color:#b2e9df;border-radius:30px;font-size:10px;font-weight:900;pointer-events:none;z-index:4}.stagefooter{display:flex;justify-content:space-between;padding:11px 15px;color:var(--muted);font-size:11px}.details{padding:17px;display:flex;flex-direction:column;gap:12px}.details h3{margin:0;font-size:18px}.details p{color:var(--muted);font-size:12px;line-height:1.6}.roster{display:grid;grid-template-columns:1fr 1fr;gap:6px}.rosterBtn{font-size:10px;text-align:left;padding:10px;border-radius:9px;border:1px solid var(--stroke);color:var(--ink);background:var(--pane2);line-height:1.4}.rosterBtn.active{border-color:var(--agent);box-shadow:inset 0 0 0 1px var(--agent)}.identity{display:flex;gap:12px;align-items:center;margin-top:8px}.portrait{display:grid;place-items:center;border:1px solid var(--stroke);background:var(--pane2);width:52px;height:52px;border-radius:13px;font-size:26px;font-weight:900}.identity strong{font-size:21px}.identity small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.tasks{padding-left:18px;color:var(--muted);font-size:12px;line-height:1.8}.missionbox{display:flex;gap:7px}.missionbox input{min-width:0;flex:1;border:1px solid var(--stroke);background:var(--pane2);padding:10px;border-radius:9px;color:var(--ink);font-size:11px}.btn{background:var(--mint);color:#052222;border:1px solid var(--mint);padding:10px 13px;border-radius:9px;font-weight:800;font-size:11px;white-space:nowrap}body.light .btn{color:#fff}.layout2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:15px}.metric{background:var(--pane);border:1px solid var(--stroke);border-radius:15px;padding:20px}.metric small{color:var(--muted);font-size:12px}.metric strong{display:block;margin:11px 0;font-size:27px;letter-spacing:-1px}.metric span{color:var(--mint);font-size:11px}.card{padding:20px}.card h3{margin:0 0 12px;font-size:17px}.card p,.card li{color:var(--muted);font-size:12px;line-height:1.7}.data{display:grid;gap:9px}.data div,.missionItem{display:flex;align-items:center;justify-content:space-between;padding:11px;border:1px solid var(--stroke);border-radius:9px;background:var(--pane2);gap:13px;font-size:12px}.data span{color:var(--muted)}.missionItem button{border:1px solid var(--stroke);border-radius:8px;background:var(--pane);color:var(--muted);padding:6px 9px;font-size:11px}.missionItem span{flex:1}.form{display:grid;grid-template-columns:1fr 1fr;gap:11px}.form label{display:flex;flex-direction:column;gap:5px;color:var(--muted);font-size:11px}.form input{background:var(--pane2);color:var(--ink);border:1px solid var(--stroke);border-radius:8px;padding:10px;font-size:13px}.featuregrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.feature{background:var(--pane);padding:18px;border:1px solid var(--stroke);border-radius:13px}.feature strong{color:var(--mint);font-size:13px}.feature p{color:var(--muted);font-size:11px;line-height:1.65}.profileEditor{display:flex;gap:9px;align-items:center}.profileEditor input{max-width:180px;background:var(--pane2);border:1px solid var(--stroke);padding:9px;color:var(--ink);border-radius:9px}.profileEditor button{padding:9px;background:var(--mint);color:#071a22;border:0;border-radius:8px;font-weight:800}.hint{color:var(--muted);font-size:12px;line-height:1.7}.footer{border-top:1px solid var(--stroke);padding:16px 30px;color:var(--muted);font-size:11px}[hidden]{display:none!important}
+@media(max-width:1150px){.roomgrid{grid-template-columns:1fr}.roster{grid-template-columns:repeat(3,1fr)}.stage{height:550px}}@media(max-width:720px){.app{display:block;padding-bottom:62px}.sidebar{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;height:62px;z-index:20;padding:6px;border-top:1px solid var(--stroke);border-right:0}.brand,.workspace,.sidebottom{display:none}.menu{flex-direction:row;justify-content:space-between;overflow-x:auto}.menu button{font-size:0;min-width:44px;height:43px;padding:10px;text-align:center}.menu button::first-letter{font-size:18px}.header{padding:12px;min-height:68px}.header h1{font-size:18px}.title small{font-size:8px}.topright{gap:5px}.clock{display:none}.profile{padding:5px}.profile strong{display:none}.content{padding:16px 12px}.intro{flex-direction:column;align-items:start}.intro h2{font-size:23px}.roomgrid{gap:10px}.stage{height:450px}.stageheader{flex-direction:column;align-items:start}.controls{justify-content:start}.stagefooter{font-size:9px}.metrics{grid-template-columns:1fr 1fr}.layout2,.featuregrid{grid-template-columns:1fr}.roster{grid-template-columns:1fr 1fr}.form{grid-template-columns:1fr}.details{padding:14px}.missionbox{flex-direction:column}}
+
+/* MM Intelligence — Sala 3D nativa, sem iframe */
+.hq-viewport .mm-studio-3d{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#153649,#071621 78%);border-radius:inherit;color:#effcff;isolation:isolate}
+.mm3d-canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline-offset:-4px}
+.mm3d-canvas:active{cursor:grabbing}.mm3d-canvas:focus-visible{outline:3px solid #44edcc}
+.mm3d-labels{position:absolute;inset:0;pointer-events:none;z-index:3}
+.mm3d-agent-label{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);padding:7px 11px;border:1px solid var(--agent);border-radius:11px;background:#071925e8;color:#f8ffff;box-shadow:0 7px 24px #0009;white-space:nowrap;text-align:center;cursor:pointer;font:inherit;min-width:74px;line-height:1.15}
+.mm3d-agent-label strong{display:block;font-size:12px}.mm3d-agent-label small{display:block;color:#bdd6df;font-size:10px;margin-top:3px}
+.mm3d-agent-label.selected{background:var(--agent);color:#051626;box-shadow:0 0 0 2px #ffffff73,0 7px 22px #0008}.mm3d-agent-label.selected small{color:#17334a}
+.mm3d-agent-label:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.mm3d-topline{position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:8px;z-index:4;pointer-events:none}
+.mm3d-pill,.mm3d-backend{display:inline-flex;align-items:center;gap:7px;border:1px solid #477787;padding:7px 10px;border-radius:99px;background:#061b28e8;color:#d4f6f4;font-weight:750;font-size:10px;letter-spacing:.06em}
+.mm3d-backend{letter-spacing:0;color:#cadde3;border-color:#355566;font-weight:500}
+.mm3d-pulse{width:7px;height:7px;border-radius:50%;background:#4ce9c4;box-shadow:0 0 9px #4ce9c4}
+.mm3d-toolbar{position:absolute;top:11px;right:12px;z-index:5;display:flex;align-items:center;gap:5px;border:1px solid #356374;border-radius:13px;padding:5px;background:#071d2bdc;box-shadow:0 10px 28px #0007}
+.mm3d-toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:28px;min-height:31px;border:1px solid transparent;background:#173344;color:#e7fbff;border-radius:8px;font:inherit;font-size:10px;font-weight:750;cursor:pointer;padding:5px 7px}
+.mm3d-toolbar button:hover,.mm3d-toolbar button[aria-pressed="true"]{color:#061c23;background:#55e7c7}
+.mm3d-toolbar button:focus-visible{outline:2px solid #f4ffff;outline-offset:2px}
+.mm3d-footer{position:absolute;bottom:11px;left:12px;right:12px;display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;border:1px solid #315463;background:#071b28dd;color:#d3e6ed;border-radius:9px;padding:8px 10px;font-size:10px;pointer-events:none;z-index:2}
+.mm3d-footer strong{color:#61ebcb}.mm3d-error{position:absolute;left:10%;right:10%;bottom:20%;padding:16px;border-radius:12px;border:1px solid #ffb77e;background:#442720;color:#fff;font-size:13px;text-align:center;z-index:6}
+.mm3d-screenreader{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:1020px){.mm3d-backend{display:none}}
+@media(max-width:700px){.hq-viewport .mm-studio-3d{min-height:350px}.mm3d-topline{top:7px;left:7px}.mm3d-toolbar{top:7px;right:7px;gap:2px}.mm3d-toolbar button{min-width:25px;min-height:29px;padding:4px}.mm3d-toolbar button span{display:none}.mm3d-agent-label{padding:6px 8px;min-width:55px}.mm3d-agent-label strong{font-size:10px}.mm3d-agent-label small{font-size:9px}.mm3d-footer{font-size:9px;bottom:7px;left:7px;right:7px}}
+@media(prefers-reduced-motion:reduce){.mm3d-pulse{box-shadow:none}}
+</style></head><body><div class="app"><aside class="sidebar"><div class="brand"><span>MM</span><strong>MM Intelligence<small>5.0 · TYPESCRIPT</small></strong></div><div class="workspace"><small>AMBIENTE ILUSTRATIVO</small><b>Minha empresa exemplo</b><p class="hint">Sem acesso ao seu banco.</p></div><nav class="menu" aria-label="Navegação"><button data-nav="overview">▦ Meu dia</button><button data-nav="studio" class="is-current">✦ Sala da IA 3D</button><button data-nav="analysis">◈ Análise Completa</button><button data-nav="price">◉ Price</button><button data-nav="missions">✓ Missões</button></nav><div class="sidebottom">♢ Dados fictícios · sem API de IA ou operações comerciais reais</div></aside><main class="main"><header class="header"><div class="title"><small>MM / GESTÃO INTELIGENTE</small><h1 id="pageTitle">Sala da IA em 3D</h1></div><div class="topright"><div class="clock"><b id="now">--:--</b><small id="today">Data local</small></div><button class="theme" type="button" id="theme">☼ Claro</button><div class="profile"><span class="av" id="personAvatar">UD</span><strong id="personName">Usuário demo</strong></div></div></header><div class="content"><div class="alert">● Esta é uma demonstração compilada a partir de arquivos TypeScript. A Sala 3D usa WebGL com alternativa Canvas 2D. Os indicadores e as missões são ilustrativos.</div>
+<section data-screen="studio"><div class="intro"><div><span class="eyebrow">NOVO ESTÚDIO 3D</span><h2>Seus especialistas em um escritório inteligente.</h2><p>Gire a câmera, aproxime os personagens, descubra as funções e crie missões. O escritório e os avatares são renderizados em 3D, sem imagens planas.</p></div><span class="pill">6 especialistas · animações simuladas</span></div><div class="roomgrid"><div class="stagebox"><div class="stageheader"><div><strong>Estúdio de operações</strong><small id="backend">Preparando cena</small></div><div class="controls"><button id="orbitL" aria-label="Girar à esquerda">↶</button><button id="orbitR" aria-label="Girar à direita">↷</button><button id="minus" aria-label="Afastar">−</button><button id="plus" aria-label="Aproximar">+</button><button id="reset">⟲ Reiniciar</button><button id="focus">◎ Focar agente</button><button id="animate">● Animando</button></div></div><div class="stage"><div class="mm-studio-3d"><canvas class="mm3d-canvas" id="room" aria-label="Escritório tridimensional interativo" tabindex="0"></canvas><div id="labels" class="mm3d-labels"></div></div><span class="badge3d">MM / SALA DE INTELIGÊNCIA</span></div><div class="stagefooter"><span>Arraste para girar · use a roda para zoom</span><span>Clique em um personagem</span></div></div><aside class="card details"><span class="eyebrow">EQUIPE DIGITAL</span><div id="roster" class="roster"></div><div class="identity"><span id="selectedBadge" class="portrait">✦</span><div><strong id="selectedName">Atlas</strong><small id="selectedRole">Estratégia</small></div></div><p id="selectedDescription"></p><strong style="font-size:12px">Missões possíveis</strong><ul id="selectedTasks" class="tasks"></ul><div class="missionbox"><input id="missionInput" maxlength="180" aria-label="Nova missão" placeholder="Descreva uma missão..."/><button id="createMission" class="btn">+ Criar</button></div><p class="hint">O agente não executará esta missão sozinho. Ela apenas entra no quadro local.</p></aside></div><div class="featuregrid"><article class="feature"><strong>Personagens tridimensionais</strong><p>Rosto, cabelo, roupas e acessórios em geometria 3D, com movimentos simples e iluminação.</p></article><article class="feature"><strong>Interação real com câmera</strong><p>Orbit, zoom, seleção e foco nos personagens. Opção de renderização compatível.</p></article><article class="feature"><strong>TypeScript de ponta a ponta</strong><p>O motor 3D do painel não depende mais de um iframe com código JavaScript separado.</p></article></div></section>
+<section data-screen="overview" hidden><div class="intro"><div><span class="eyebrow">PAINEL EXECUTIVO</span><h2>Seu dia, organizado em um só lugar.</h2><p>Exemplo de operação híbrida com dados fictícios.</p></div></div><div class="metrics"><div class="metric"><small>Faturamento de exemplo</small><strong>R$ 809,40</strong><span>Pedidos concluídos</span></div><div class="metric"><small>Contribuição comercial</small><strong>R$ 364,74</strong><span>Não representa lucro líquido</span></div><div class="metric"><small>Produtos abaixo do mínimo</small><strong>2</strong><span>Revisar reposição</span></div></div><div class="layout2"><article class="card"><h3>Prioridades de hoje</h3><div class="data"><div><span>Recebimentos em aberto</span><b>2</b></div><div><span>SKUs com estoque baixo</span><b>2</b></div><div><span>Revisão de preços</span><b>1</b></div></div></article><article class="card"><h3>Próximas ações</h3><p>Revisar estoque, simular margens com Price e verificar recebimentos com Luna. O sistema original mantém análise, clientes, produtos e módulos de gestão conectáveis.</p><button class="btn" data-nav="studio" onclick="document.querySelector('[data-nav=studio]').click()">Abrir Sala 3D</button></article></div></section>
+<section data-screen="analysis" hidden><div class="intro"><div><span class="eyebrow">ANÁLISE COMPLETA PRESERVADA</span><h2>Faturamento e impostos · Rentabilidade por produto</h2><p>No projeto autenticado, esta é a mesma área do sistema original. Abaixo, apenas uma prévia de formato e dados fictícios.</p></div></div><div class="metrics"><div class="metric"><small>Faturamento bruto</small><strong>R$ 809,40</strong></div><div class="metric"><small>Custos + taxas + impostos</small><strong>R$ 444,66</strong></div><div class="metric"><small>Resultado de contribuição</small><strong>R$ 364,74</strong></div></div><div class="layout2"><article class="card"><h3>Faturamento e impostos</h3><div class="data"><div><span>Vendas concluídas</span><b>4</b></div><div><span>Pedidos CAN</span><b>1 (excluído)</b></div><div><span>Resultado final após fixos</span><b>Não calculado</b></div></div></article><article class="card"><h3>Rentabilidade por produto</h3><div class="data"><div><span>Creatina 300g</span><b>Simulação por pedido</b></div><div><span>Whey 900g</span><b>Simulação por pedido</b></div><div><span>Serviço e camiseta</span><b>Simulação por pedido</b></div></div></article></div></section>
+<section data-screen="price" hidden><div class="intro"><div><span class="eyebrow">PRICE · INTELIGÊNCIA COMPETITIVA</span><h2>Preço competitivo com margem protegida.</h2><p>Simule os parâmetros da sua venda; a referência do concorrente é informada manualmente e não representa consulta em tempo real.</p></div></div><div class="layout2"><div class="card"><h3>Simulador de preço</h3><div class="form"><label>Preço atual (R$)<input data-price="preco_atual" type="number" step="0.01" min="0" value="79.90"></label><label>Custo (R$)<input data-price="custo" type="number" step="0.01" min="0" value="36"></label><label>Frete (R$)<input data-price="frete" type="number" step="0.01" min="0" value="6"></label><label>Tarifa fixa (R$)<input data-price="tarifa_fixa" type="number" step="0.01" min="0" value="1.50"></label><label>Comissão (%)<input data-price="taxa_percentual" type="number" step="0.01" min="0" value="13"></label><label>Tributos (%)<input data-price="imposto_percentual" type="number" step="0.01" min="0" value="7"></label><label>Publicidade (%)<input data-price="ads_percentual" type="number" step="0.01" min="0" value="2"></label><label>Margem mínima (%)<input data-price="margem_minima" type="number" step="0.01" min="0" value="10"></label><label>Referência concorrente (R$)<input data-price="concorrente_preco" type="number" step="0.01" min="0" value="75.90"></label></div></div><div class="card"><h3>Resultado da simulação</h3><div class="data"><div><span>Preço mínimo</span><strong id="minimum">—</strong></div><div><span>Preço sugerido</span><strong id="suggested">—</strong></div><div><span>Margem do preço atual</span><strong id="margin">—</strong></div></div><p id="priceStatus"></p><p class="hint">Não altera anúncios e não pesquisa concorrentes automaticamente.</p><button id="createPriceMission" class="btn">Criar missão Price</button></div></div></section>
+<section data-screen="missions" hidden><div class="intro"><div><span class="eyebrow">MISSÕES DOS ESPECIALISTAS</span><h2>Acompanhe o que precisa ser feito.</h2><p>As tarefas ficam nesta página e não representam execução autônoma.</p></div></div><div class="card" id="missionList"><p>Você ainda não criou missões.</p></div><div class="card" style="margin-top:14px"><h3>Perfil demonstrativo</h3><div class="profileEditor"><input id="profileName" aria-label="Nome de exibição" placeholder="Seu nome" maxlength="60" value="Usuário demo"><button id="profileSave">Salvar nome</button></div><p>Na plataforma autenticada, o nome e a foto são gerenciados na área de perfil.</p></div></section>
+</div><footer class="footer">MM Intelligence 5.0 · Prévia local gerada a partir do projeto TypeScript · Nenhuma alteração no site publicado</footer></main></div><script>const MEMBERS = [
+    { id: 'atlas', name: 'Atlas', role: 'Estratégia e operações', color: '#67AAFF', hair: '#252D4B', skin: '#E7BA92', x: 0, z: -5.35, story: 'Coordena prioridades, integra os relatórios e distribui missões.', tasks: ['Consolidar indicadores da empresa', 'Priorizar três ações para hoje', 'Reunir diagnósticos de todos os agentes'] },
+    { id: 'max', name: 'Max', role: 'Vendas e marketplaces', color: '#FFAD62', hair: '#30271F', skin: '#B98463', x: -6.1, z: -2.85, story: 'Acompanha pedidos, conversão e desempenho de cada canal.', tasks: ['Analisar vendas por canal', 'Investigar redução de conversão', 'Conferir cancelamentos e devoluções'] },
+    { id: 'luna', name: 'Luna', role: 'Financeiro e rentabilidade', color: '#65E2BD', hair: '#2C2738', skin: '#D5A57D', x: 6.1, z: -2.85, story: 'Ajuda a entender recebíveis, despesas, margens e caixa.', tasks: ['Revisar contas a receber', 'Comparar lucro e fluxo de caixa', 'Identificar despesas fora do padrão'] },
+    { id: 'nexa', name: 'Nexa', role: 'Estoque e reposição', color: '#BF9AFF', hair: '#432F62', skin: '#B78872', x: -6.1, z: 3.15, story: 'Monitora giro, rupturas, depósitos e reposição.', tasks: ['Identificar SKUs com baixo estoque', 'Estimar necessidade de reposição', 'Revisar cobertura por canal'] },
+    { id: 'vega', name: 'Vega', role: 'Marketing e crescimento', color: '#FF7CA0', hair: '#572E44', skin: '#C99672', x: 6.1, z: 3.15, story: 'Ajuda a interpretar campanhas, anúncios e oportunidades.', tasks: ['Revisar desempenho das campanhas', 'Encontrar oportunidades de escala', 'Comparar conversão por canal'] },
+    { id: 'price', name: 'Price', role: 'Precificação e concorrência', color: '#FFD06F', hair: '#343D58', skin: '#D6A57F', x: 0, z: 5.65, story: 'Compara preços e protege a margem mínima de cada produto.', tasks: ['Simular preço mínimo rentável', 'Registrar preços de concorrentes', 'Sugerir reajustes com margem protegida'] }
+];
+const hex = (h) => { const v = parseInt(h.slice(1), 16); return [(v >> 16 & 255) / 255, (v >> 8 & 255) / 255, (v & 255) / 255]; };
+const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+const dot = (a, b) => a.reduce((s, x, i) => s + x * b[i], 0);
+const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const norm = (v) => { const l = Math.hypot(...v) || 1; return [v[0] / l, v[1] / l, v[2] / l]; };
+const persp = (fov, aspect, near, far) => { const f = 1 / Math.tan(fov / 2), d = 1 / (near - far); return [f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) * d, -1, 0, 0, 2 * far * near * d, 0]; };
+const lookAt = (eye, target) => { const z = norm(sub(eye, target)), x = norm(cross([0, 1, 0], z)), y = cross(z, x); return [x[0], y[0], z[0], 0, x[1], y[1], z[1], 0, x[2], y[2], z[2], 0, -dot(x, eye), -dot(y, eye), -dot(z, eye), 1]; };
+const mmul = (a, b) => { let out = new Array(16); for (let j = 0; j < 4; j++)
+    for (let i = 0; i < 4; i++) {
+        let s = 0;
+        for (let k = 0; k < 4; k++)
+            s += a[k * 4 + i] * b[j * 4 + k];
+        out[j * 4 + i] = s;
+    } return out; };
+function geom() { return { verts: [] }; }
+function tri(g, a, b, c, normal) { for (const p of [a, b, c])
+    g.verts.push(...p, ...normal); }
+function cuboid() { let g = geom(); const v = [[-.5, -.5, -.5], [.5, -.5, -.5], [.5, .5, -.5], [-.5, .5, -.5], [-.5, -.5, .5], [.5, -.5, .5], [.5, .5, .5], [-.5, .5, .5]]; for (const [ids, n] of [[[4, 5, 6, 7], [0, 0, 1]], [[1, 0, 3, 2], [0, 0, -1]], [[0, 4, 7, 3], [-1, 0, 0]], [[5, 1, 2, 6], [1, 0, 0]], [[3, 7, 6, 2], [0, 1, 0]], [[0, 1, 5, 4], [0, -1, 0]]]) {
+    let [a, b, c, d] = ids;
+    tri(g, v[a], v[b], v[c], n);
+    tri(g, v[a], v[c], v[d], n);
+} return g; }
+function sphere(lat = 10, lon = 14) { let g = geom(); const point = (i, j) => { let a = Math.PI * i / lat, b = Math.PI * 2 * j / lon; return [Math.sin(a) * Math.cos(b), Math.cos(a), Math.sin(a) * Math.sin(b)]; }; for (let i = 0; i < lat; i++)
+    for (let j = 0; j < lon; j++) {
+        let a = point(i, j), b = point(i + 1, j), c = point(i + 1, j + 1), d = point(i, j + 1);
+        tri(g, a, b, c, a);
+        tri(g, a, c, d, a);
+    } return g; }
+function cylinder(seg = 14) { let g = geom(); for (let i = 0; i < seg; i++) {
+    let a = 2 * Math.PI * i / seg, b = 2 * Math.PI * (i + 1) / seg, pa = [Math.cos(a), -.5, Math.sin(a)], pb = [Math.cos(b), -.5, Math.sin(b)], pc = [Math.cos(b), .5, Math.sin(b)], pd = [Math.cos(a), .5, Math.sin(a)], n = norm([Math.cos((a + b) / 2), 0, Math.sin((a + b) / 2)]);
+    tri(g, pa, pb, pc, n);
+    tri(g, pa, pc, pd, n);
+    tri(g, [0, .5, 0], pd, pc, [0, 1, 0]);
+    tri(g, [0, -.5, 0], pb, pa, [0, -1, 0]);
+} return g; }
+const cube = cuboid(), orb = sphere(10, 12), tube = cylinder(12), hiOrb = sphere(13, 20);
+function meshAdd(out, shape, pos, size, color, opts = {}) {
+    const col = Array.isArray(color) ? color : hex(color), glow = opts.glow || 0;
+    const angle = opts.angle || 0, co = Math.cos(angle), si = Math.sin(angle);
+    const rx = opts.rx || 0, cx = Math.cos(rx), sx = Math.sin(rx);
+    const data = shape.verts;
+    for (let i = 0; i < data.length; i += 6) {
+        let [x, y, z, nx, ny, nz] = data.slice(i, i + 6);
+        x *= size[0];
+        y *= size[1];
+        z *= size[2];
+        let yy = y * cx - z * sx, zz = y * sx + z * cx;
+        y = yy;
+        z = zz;
+        let xx = x * co + z * si;
+        zz = -x * si + z * co;
+        x = xx;
+        z = zz;
+        let n = norm([nx / (size[0] || 1), ny / (size[1] || 1), nz / (size[2] || 1)]);
+        let nny = n[1] * cx - n[2] * sx, nnz = n[1] * sx + n[2] * cx;
+        n[1] = nny;
+        n[2] = nnz;
+        let nnx = n[0] * co + n[2] * si;
+        nnz = -n[0] * si + n[2] * co;
+        n[0] = nnx;
+        n[2] = nnz;
+        out.push(pos[0] + x, pos[1] + y, pos[2] + z, ...n, ...col, glow);
+    }
+}
+function addBox(out, pos, size, color, glow = 0, angle = 0) { meshAdd(out, cube, pos, size, color, { glow, angle }); }
+function addOrb(out, pos, size, color, glow = 0) { meshAdd(out, orb, pos, size, color, { glow }); }
+function addCyl(out, pos, size, color, glow = 0, angle = 0) { meshAdd(out, tube, pos, size, color, { glow, angle }); }
+function ring(out, x, y, z, r, col, th = .05) { for (let i = 0; i < 32; i++) {
+    let a = i * Math.PI * 2 / 32, b = (i + 1) * Math.PI * 2 / 32, px = x + Math.cos((a + b) / 2) * r, pz = z + Math.sin((a + b) / 2) * r;
+    addBox(out, [px, y, pz], [th, th * 1.5, r * 2 * Math.sin(Math.PI / 32) * 1.3], col, 1, Math.PI / 2 - (a + b) / 2);
+} }
+function line(out, a, b, width, color, glow = 0) { const dx = b[0] - a[0], dz = b[2] - a[2], len = Math.hypot(dx, dz), angle = Math.atan2(dx, dz); addBox(out, [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2], [width, width, len], color, glow, angle); }
+const env = [];
+function buildEnvironment() {
+    addBox(env, [0, -.3, 0], [23, .6, 18], '#102437');
+    addBox(env, [0, -.01, 0], [22.6, .06, 17.6], '#152A3F');
+    // floor grid, underlit panels
+    for (let x = -11; x <= 11; x += 2)
+        addBox(env, [x, .035, 0], [.013, .016, 17.4], '#1B5161', .55);
+    for (let z = -8; z <= 8; z += 2)
+        addBox(env, [0, .035, z], [22.4, .016, .013], '#1B5161', .55);
+    for (let x of [-11.6, 11.6])
+        addBox(env, [x, .35, 0], [.18, .6, 18], '#09B5B8', .8);
+    for (let z of [-8.95, 8.95])
+        addBox(env, [0, .25, z], [23, .45, .17], '#0CBEB7', .8);
+    // architect walls and panels
+    addBox(env, [0, 3.15, -8.9], [23, 6.3, .4], '#13283D');
+    addBox(env, [-11.5, 2.45, 0], [.36, 4.9, 18], '#18344C');
+    addBox(env, [11.5, 1, 0], [.24, 2, 18], '#162C3D');
+    for (let i = -5; i <= 5; i++) {
+        addBox(env, [i * 1.9, 6.02, -8.62], [.045, .09, .16], '#129DA6', .8);
+    }
+    for (let z of [-5, -2, 1, 4, 7]) {
+        addBox(env, [-11.27, 2.8, z], [.08, 2.75, 2.0], '#24485C');
+        addBox(env, [-11.2, 2.8, z], [.095, 2.25, 1.75], '#153A50');
+        addBox(env, [-11.11, 2.9, z], [.03, 1.65, 1.2], '#174F62', .25);
+    }
+    // big screen dashboard
+    addBox(env, [0, 4.05, -8.54], [8.7, 3.45, .16], '#081723');
+    addBox(env, [0, 5.79, -8.45], [8.7, .065, .08], '#0EDFC7', 1);
+    addBox(env, [0, 2.29, -8.45], [8.7, .055, .08], '#0EDFC7', 1);
+    for (let i = 0; i < 14; i++) {
+        let h = .45 + .22 * (i % 5) + .12 * Math.sin(i * 1.3);
+        addBox(env, [-3.7 + i * .55, 3.1 + h * .45, -8.38], [.29, h, .09], i % 2 ? '#1484AD' : '#12B4B2', .7);
+    }
+    // side information panels
+    for (let x of [-7.4, 7.4]) {
+        addBox(env, [x, 4.9, -8.48], [2.2, 1.6, .12], '#091C2B');
+        for (let i = 0; i < 4; i++)
+            addBox(env, [x, 5.35 - i * .33, -8.35], [1.6 - .27 * (i % 2), .07, .06], '#26C8D0', .65);
+    }
+    // central operations deck
+    addCyl(env, [0, .12, 0], [2.35, .23, 2.35], '#244A60');
+    ring(env, 0, .27, 0, 2.3, '#35E1D1', .065);
+    addCyl(env, [0, .43, 0], [.62, .43, .62], '#12536B', .9);
+    ring(env, 0, .77, 0, .85, '#43D3EA', .07);
+    addOrb(env, [0, 1.48, 0], [.43, .64, .43], '#21A7D0', 1);
+    for (let y of [1.1, 1.86])
+        ring(env, 0, y, 0, .76, '#2DC8DB', .035);
+    // desk stations
+    for (const a of MEMBERS) {
+        const x = a.x, z = a.z;
+        addBox(env, [x, 1.06, z - .8], [2.1, .18, 1.23], '#1A4055');
+        addBox(env, [x, 1.16, z - .8], [2.12, .07, 1.29], '#2A6679');
+        for (let xx of [x - .83, x + .83])
+            addBox(env, [xx, .58, z - .8], [.12, 1, .12], '#0A1C2B');
+        addBox(env, [x, 1.83, z - 1.18], [1.28, .85, .09], '#091B2B');
+        addBox(env, [x, 1.82, z - 1.12], [1.1, .67, .055], a.color, .2);
+        addBox(env, [x, 1.83, z - 1.07], [.85, .48, .035], '#0A2C43');
+        for (let j = 0; j < 3; j++)
+            addBox(env, [x - .32 + j * .31, 1.96 - j * .07, z - 1.035], [.22, .06, .025], a.color, .9);
+        addBox(env, [x, 1.36, z - 1.18], [.09, .25, .08], '#2B6A82');
+        ring(env, x, .05, z + .5, .78, a.color, .065);
+    }
+    // front entry
+    for (let x of [-11.3, 11.3])
+        addBox(env, [x, 0, 8.95], [.18, .2, .28], '#13D6C7', 1);
+}
+buildEnvironment();
+function addCharacter(out, a, index, time, selected, reduce) {
+    const x = a.x, z = a.z, active = selected === a.id;
+    const breathe = reduce ? 0 : Math.sin(time * 1.6 + index * .93) * .025;
+    const step = reduce ? 0 : Math.sin(time * 1.3 + index * .5) * .06;
+    const y = breathe + (active ? .04 : 0);
+    // silhouette & humanoid fully 3D meshes
+    addOrb(out, [x, .10, z + .54], [.54, .045, .37], '#071825');
+    // feet & legs
+    for (let side of [-1, 1]) {
+        addCyl(out, [x + side * .22, .48 + y, z + .51], [.15, .72, .15], '#1B263E');
+        addOrb(out, [x + side * .22, .13 + y, z + .69], [.22, .13, .35], '#0B162B');
+    }
+    // torso taper, chest overlay & neck
+    addCyl(out, [x, 1.35 + y, z + .48], [.55, .87, .34], a.color, .03);
+    addOrb(out, [x, 1.56 + y, z + .48], [.59, .34, .36], a.color);
+    addBox(out, [x, 1.19 + y, z + .804], [.15, .59, .03], '#E6F9FF', .25);
+    addCyl(out, [x, 1.94 + y, z + .48], [.17, .26, .17], a.skin);
+    // arms with gestures
+    for (let side of [-1, 1]) {
+        addCyl(out, [x + side * .66, 1.39 + y, z + .52 + step * side], [.17, .75, .18], a.color, 0, side * .2);
+        addOrb(out, [x + side * .67, 1.0 + y, z + .56 + step * side], [.18, .19, .18], a.skin);
+    }
+    // head: round high quality 3D shape and hair cap
+    addOrb(out, [x, 2.27 + y, z + .54], [.43, .49, .42], a.skin);
+    addOrb(out, [x, 2.61 + y, z + .49], [.46, .23, .43], a.hair);
+    if (a.id === 'luna' || a.id === 'vega') {
+        addOrb(out, [x - .40, 2.28 + y, z + .50], [.14, .41, .32], a.hair);
+        addOrb(out, [x + .40, 2.28 + y, z + .50], [.14, .41, .32], a.hair);
+    }
+    if (a.id === 'nexa') {
+        for (let side of [-1, 1])
+            addOrb(out, [x + side * .48, 2.62 + y, z + .44], [.18, .19, .19], a.hair);
+    }
+    if (a.id === 'max')
+        addOrb(out, [x - .11, 2.78 + y, z + .54], [.33, .19, .38], a.hair);
+    if (a.id === 'price') {
+        addBox(out, [x, 2.4 + y, z + .925], [.66, .16, .10], '#2A4562', 1);
+        addOrb(out, [x + .45, 2.27 + y, z + .55], [.11, .22, .11], '#FFE098', 1);
+    }
+    // eyes face toward positive Z
+    for (let side of [-1, 1])
+        addOrb(out, [x + side * .155, 2.31 + y, z + .931], [.042, .052, .03], '#213046');
+    addOrb(out, [x, 2.09 + y, z + .93], [.085, .025, .02], '#985E58');
+    // agent badge
+    addOrb(out, [x - .18, 1.52 + y, z + .83], [.095, .09, .024], '#FFFFFF', .8);
+    // Personalização procedural: silhuetas, acessórios e detalhes exclusivos para cada agente.
+    if (a.id === 'atlas') {
+        for (const side of [-1, 1])
+            addBox(out, [x + side * .47, 1.73 + y, z + .55], [.22, .09, .46], '#D4E8FF', .15);
+        addBox(out, [x, 1.41 + y, z + .84], [.18, .21, .045], '#DAEEFC', .65);
+    }
+    if (a.id === 'max') {
+        for (const side of [-1, 1])
+            addOrb(out, [x + side * .45, 2.28 + y, z + .54], [.12, .20, .20], '#19273A');
+        addBox(out, [x + .44, 2.03 + y, z + .72], [.035, .22, .12], '#FFBA72', .6);
+    }
+    if (a.id === 'luna') {
+        for (const side of [-1, 1])
+            addBox(out, [x + side * .16, 2.30 + y, z + .97], [.25, .14, .045], '#264C59', .55);
+        addBox(out, [x, 2.31 + y, z + .96], [.10, .035, .04], '#C6FAEF', .7);
+    }
+    if (a.id === 'nexa') {
+        addBox(out, [x, 2.43 + y, z + .97], [.57, .17, .055], '#7BD9F4', .65);
+        addBox(out, [x + .72, .99 + y, z + .84], [.36, .40, .12], '#314F78', .4);
+    }
+    if (a.id === 'vega') {
+        addOrb(out, [x + .48, 2.39 + y, z + .24], [.17, .49, .23], '#6D3756');
+        addBox(out, [x, 1.74 + y, z + .79], [.43, .10, .06], '#FEE1E9', .3);
+    }
+    if (a.id === 'price') {
+        for (const side of [-1, 1])
+            addBox(out, [x + side * .18, 2.32 + y, z + .98], [.26, .13, .05], '#F4DA96', .55);
+        addBox(out, [x, 2.32 + y, z + .98], [.1, .04, .05], '#624E38', .2);
+        addBox(out, [x - .73, 1.13 + y, z + .78], [.42, .52, .085], '#F3C64C', .65);
+    }
+    if (active) {
+        ring(out, x, .075, z + .54, .88, a.color, .095);
+        addOrb(out, [x, 3.06 + y, z + .50], [.19, .11, .19], a.color, 1);
+    }
+}
+class Room3D {
+    constructor(canvas, labelsRoot, options = {}) {
+        this.ctx = null;
+        this.backend = 'canvas2d';
+        this.program = null;
+        this.staticBuffer = null;
+        this.dynamicBuffer = null;
+        this.staticArr = new Float32Array();
+        this.uVP = null;
+        this.aPos = 0;
+        this.aNorm = 0;
+        this.aColor = 0;
+        this.aGlow = 0;
+        this.ro = null;
+        this.raf = 0;
+        this.vp = null;
+        this.frame = () => { };
+        this.down = () => { };
+        this.move = () => { };
+        this.up = () => { };
+        this.wheel = () => { };
+        this.contextLost = null;
+        this.visible = true;
+        this.labelsRoot = labelsRoot;
+        this.canvas = canvas;
+        this.options = options;
+        this.selected = options.selected || 'atlas';
+        this.moving = true;
+        this.reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false;
+        this.yaw = -.3;
+        this.pitch = .68;
+        this.dist = window.innerWidth < 560 ? 43 : 29;
+        this.targetYaw = this.yaw;
+        this.targetPitch = this.pitch;
+        this.drag = false;
+        this.pointerId = null;
+        this.lastX = 0;
+        this.lastY = 0;
+        this.initialX = 0;
+        this.initialY = 0;
+        this.last = 0;
+        this.lastDraw = 0;
+        this.elapsed = 0;
+        this.focused = false;
+        this.lookCenter = [0, .3, 0];
+        this.targetCenter = [0, .3, 0];
+        this.disposed = false;
+        this.lastLabel = 0;
+        this.status = '';
+        this.gl = canvas.getContext('webgl', { alpha: false, antialias: true, powerPreference: 'high-performance' });
+        if (!this.gl) {
+            this.ctx = canvas.getContext('2d', { alpha: false });
+            this.backend = 'canvas2d';
+        }
+        else {
+            this.backend = 'webgl';
+        }
+        if (!this.gl && !this.ctx) {
+            this.status = 'Canvas indisponível';
+            return;
+        }
+        if (!this.gl) {
+            this.setupHandlers();
+            return;
+        }
+        const gl = this.gl;
+        if (!gl)
+            return;
+        const vs = `attribute vec3 aPos;attribute vec3 aNorm;attribute vec3 aColor;attribute float aGlow;uniform mat4 uVP;varying vec3 vColor;varying vec3 vNormal;varying float vGlow;void main(){gl_Position=uVP*vec4(aPos,1.);vColor=aColor;vNormal=aNorm;vGlow=aGlow;}`;
+        const fs = `precision mediump float;varying vec3 vColor;varying vec3 vNormal;varying float vGlow;void main(){vec3 L=normalize(vec3(-.5,.95,.7));float light=.49+max(dot(normalize(vNormal),L),0.)*.55;vec3 color=mix(vColor*light,vColor,clamp(vGlow,0.,1.));gl_FragColor=vec4(pow(color,vec3(.94)),1.);}`;
+        const compile = (src, type) => { const s = gl.createShader(type); if (!s)
+            throw Error("WebGL shader indisponível"); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS))
+            throw Error(gl.getShaderInfoLog(s) || "Erro ao compilar shader"); return s; };
+        this.program = gl.createProgram();
+        if (!this.program)
+            throw Error("Programa WebGL indisponível");
+        gl.attachShader(this.program, compile(vs, gl.VERTEX_SHADER));
+        gl.attachShader(this.program, compile(fs, gl.FRAGMENT_SHADER));
+        gl.linkProgram(this.program);
+        if (!gl.getProgramParameter(this.program, gl.LINK_STATUS))
+            throw Error(gl.getProgramInfoLog(this.program) || "Erro ao vincular programa WebGL");
+        gl.useProgram(this.program);
+        this.aPos = gl.getAttribLocation(this.program, 'aPos');
+        this.aNorm = gl.getAttribLocation(this.program, 'aNorm');
+        this.aColor = gl.getAttribLocation(this.program, 'aColor');
+        this.aGlow = gl.getAttribLocation(this.program, 'aGlow');
+        this.uVP = gl.getUniformLocation(this.program, 'uVP');
+        gl.enable(gl.DEPTH_TEST);
+        gl.depthFunc(gl.LEQUAL);
+        gl.enable(gl.CULL_FACE);
+        gl.cullFace(gl.BACK);
+        this.staticBuffer = gl.createBuffer();
+        this.dynamicBuffer = gl.createBuffer();
+        this.staticArr = new Float32Array(env);
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.staticBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, this.staticArr, gl.STATIC_DRAW);
+        this.setupHandlers();
+    }
+    setupHandlers() {
+        const canvas = this.canvas;
+        this.down = this.pointerDown.bind(this);
+        this.move = this.pointerMove.bind(this);
+        this.up = this.pointerUp.bind(this);
+        this.wheel = this.onWheel.bind(this);
+        canvas.addEventListener('pointerdown', this.down);
+        canvas.addEventListener('pointermove', this.move);
+        canvas.addEventListener('pointerup', this.up);
+        canvas.addEventListener('pointercancel', this.up);
+        canvas.addEventListener('wheel', this.wheel, { passive: false });
+        if (this.gl) {
+            this.contextLost = (e) => { e.preventDefault(); this.status = 'Gráfico 3D temporariamente indisponível'; this.pause(); };
+            canvas.addEventListener('webglcontextlost', this.contextLost);
+        }
+        this.ro = new ResizeObserver(() => this.resize());
+        this.ro.observe(canvas);
+        this.resize();
+        this.frame = (ts) => { if (this.disposed)
+            return; if (!document.hidden && (this.gl || ts - this.lastDraw > 70)) {
+            this.render(ts);
+            this.lastDraw = ts;
+        } this.raf = requestAnimationFrame(this.frame); };
+        this.raf = requestAnimationFrame(this.frame);
+    }
+    resize() { let dpr = Math.min(window.devicePixelRatio || 1, this.ctx ? 1 : (window.innerWidth < 760 ? 1.15 : 1.4)), b = this.canvas.getBoundingClientRect(), w = Math.max(1, Math.floor(b.width * dpr)), h = Math.max(1, Math.floor(b.height * dpr)); if (this.canvas.width !== w || this.canvas.height !== h) {
+        this.canvas.width = w;
+        this.canvas.height = h;
+        if (this.gl)
+            this.gl.viewport(0, 0, w, h);
+    } }
+    setSelected(id) { if (MEMBERS.some(m => m.id === id)) {
+        this.selected = id;
+        if (this.focused) {
+            const a = MEMBERS.find(x => x.id === id);
+            this.targetCenter = [a.x, 1.65, a.z + .6];
+        }
+        this.drawLabels();
+    } }
+    setMotion(b) { this.moving = !!b; }
+    pause() { this.moving = false; }
+    orbit(delta) { this.targetYaw = Math.max(-1.05, Math.min(1.05, this.targetYaw + delta)); }
+    zoom(delta) { this.dist = Math.max(8, Math.min(55, this.dist + delta)); }
+    focus() { this.focused = !this.focused; const a = MEMBERS.find(x => x.id === this.selected); this.targetCenter = this.focused ? [a.x, 1.65, a.z + .6] : [0, .3, 0]; this.dist = this.focused ? (window.innerWidth < 560 ? 9.5 : 7.8) : (window.innerWidth < 560 ? 43 : 29); this.targetPitch = this.focused ? .14 : .68; this.targetYaw = -.3; return this.focused; }
+    reset() { this.focused = false; this.targetCenter = [0, .3, 0]; this.targetYaw = -.3; this.targetPitch = .68; this.dist = window.innerWidth < 560 ? 43 : 29; }
+    pointerDown(e) { if (e.button !== 0)
+        return; this.drag = true; this.pointerId = e.pointerId; this.initialX = e.clientX; this.initialY = e.clientY; this.lastX = e.clientX; this.lastY = e.clientY; this.canvas.setPointerCapture?.(e.pointerId); }
+    pointerMove(e) { if (!this.drag)
+        return; this.targetYaw = Math.max(-1.05, Math.min(1.05, this.targetYaw - (e.clientX - this.lastX) * .005)); this.targetPitch = Math.max(.31, Math.min(.91, this.targetPitch + (e.clientY - this.lastY) * .004)); this.lastX = e.clientX; this.lastY = e.clientY; }
+    pointerUp(e) { if (!this.drag)
+        return; this.drag = false; this.canvas.releasePointerCapture?.(e.pointerId); if (Math.hypot(e.clientX - this.initialX, e.clientY - this.initialY) < 7) {
+        const box = this.canvas.getBoundingClientRect();
+        let clickX = e.clientX - box.left, clickY = e.clientY - box.top, best = null, distance = 75;
+        for (const a of MEMBERS) {
+            const pt = this.project([a.x, 1.65, a.z + .54]);
+            let ds = Math.hypot(pt.x - clickX, pt.y - clickY);
+            if (ds < distance) {
+                distance = ds;
+                best = a.id;
+            }
+        }
+        if (best)
+            this.options.onSelect?.(best);
+    } }
+    onWheel(e) { e.preventDefault(); this.zoom(Math.sign(e.deltaY) * 1.4); }
+    bind(buffer) { let gl = this.gl; if (!gl)
+        return; gl.bindBuffer(gl.ARRAY_BUFFER, buffer); const stride = 40; for (const [loc, count, offset] of [[this.aPos, 3, 0], [this.aNorm, 3, 12], [this.aColor, 3, 24], [this.aGlow, 1, 36]]) {
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, count, gl.FLOAT, false, stride, offset);
+    } }
+    cameraVP() { const aspect = this.canvas.width / this.canvas.height; const eye = [this.lookCenter[0] + Math.sin(this.yaw) * this.dist * Math.cos(this.pitch), this.lookCenter[1] + Math.sin(this.pitch) * this.dist, this.lookCenter[2] + Math.cos(this.yaw) * this.dist * Math.cos(this.pitch)]; return mmul(persp(Math.PI / 4.15, aspect, .1, 100), lookAt(eye, this.lookCenter)); }
+    project(v) { const m = this.vp || this.cameraVP(); const clip = [0, 0, 0, 0]; for (let i = 0; i < 4; i++)
+        clip[i] = m[i] * v[0] + m[4 + i] * v[1] + m[8 + i] * v[2] + m[12 + i]; const w = clip[3] || 1; return { x: (clip[0] / w * .5 + .5) * this.canvas.clientWidth, y: (1 - (clip[1] / w * .5 + .5)) * this.canvas.clientHeight, depth: clip[2] / w }; }
+    drawLabels() { const els = this.labelsRoot.querySelectorAll('[data-3d-agent]'); for (const el of els) {
+        const a = MEMBERS.find(m => m.id === el.dataset.agent);
+        if (!a)
+            continue;
+        const point = this.project([a.x, 3.85, a.z + .54]);
+        el.style.left = `${point.x}px`;
+        el.style.top = `${point.y}px`;
+        el.classList.toggle('selected', a.id === this.selected);
+        el.style.display = this.focused ? 'none' : '';
+    } }
+    render(ts) {
+        let gl = this.gl, dt = Math.min(.055, (ts - (this.last || ts)) / 1000);
+        this.last = ts;
+        if (this.moving && !this.reduce)
+            this.elapsed += dt;
+        this.yaw += (this.targetYaw - this.yaw) * .11;
+        this.pitch += (this.targetPitch - this.pitch) * .11;
+        for (let i = 0; i < 3; i++)
+            this.lookCenter[i] += (this.targetCenter[i] - this.lookCenter[i]) * .13;
+        this.vp = this.cameraVP();
+        if (this.ctx) {
+            this.render2D(ts);
+            if (ts - this.lastLabel > 70) {
+                this.lastLabel = ts;
+                this.drawLabels();
+            }
+            return;
+        }
+        if (!gl || !this.program)
+            return;
+        gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+        gl.clearColor(.025, .055, .085, 1);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.useProgram(this.program);
+        gl.uniformMatrix4fv(this.uVP, false, new Float32Array(this.vp));
+        if (!this.focused) {
+            this.bind(this.staticBuffer);
+            gl.drawArrays(gl.TRIANGLES, 0, this.staticArr.length / 10);
+        }
+        const out = [];
+        MEMBERS.filter(a => !this.focused || a.id === this.selected).forEach((a, i) => addCharacter(out, a, i, this.elapsed, this.selected, this.reduce));
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.dynamicBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(out), gl.DYNAMIC_DRAW);
+        this.bind(this.dynamicBuffer);
+        gl.drawArrays(gl.TRIANGLES, 0, out.length / 10);
+        if (ts - this.lastLabel > 60) {
+            this.lastLabel = ts;
+            this.drawLabels();
+        }
+    }
+    render2D(ts) {
+        const ctx = this.ctx;
+        if (!ctx)
+            return;
+        const width = this.canvas.width, height = this.canvas.height;
+        const m = this.vp || this.cameraVP();
+        const bg = ctx.createLinearGradient(0, 0, 0, height);
+        bg.addColorStop(0, '#071621');
+        bg.addColorStop(.6, '#0a1c2a');
+        bg.addColorStop(1, '#071622');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, width, height);
+        let tris = [];
+        const verts = [];
+        MEMBERS.filter(a => !this.focused || a.id === this.selected).forEach((a, i) => addCharacter(verts, a, i, this.elapsed, this.selected, this.reduce));
+        const addFaces = (arr) => {
+            for (let i = 0; i < arr.length; i += 30) {
+                const pts = [], glow = arr[i + 9];
+                let bad = false, depth = 0;
+                for (let k = 0; k < 3; k++) {
+                    let j = i + k * 10;
+                    const x = arr[j], y = arr[j + 1], z = arr[j + 2], w = m[3] * x + m[7] * y + m[11] * z + m[15];
+                    if (w < .05) {
+                        bad = true;
+                        break;
+                    }
+                    let px = (m[0] * x + m[4] * y + m[8] * z + m[12]) / w, py = (m[1] * x + m[5] * y + m[9] * z + m[13]) / w, zz = (m[2] * x + m[6] * y + m[10] * z + m[14]) / w;
+                    pts.push([(px * .5 + .5) * width, (1 - (py * .5 + .5)) * height]);
+                    depth += zz;
+                }
+                if (bad)
+                    continue;
+                const n = norm([arr[i + 3], arr[i + 4], arr[i + 5]]), light = .49 + Math.max(dot(n, norm([-.5, .95, .7])), 0) * .55;
+                let rate = light * (1 - glow) + glow;
+                let color = `rgb(${Math.min(255, Math.round(arr[i + 6] * rate * 255))},${Math.min(255, Math.round(arr[i + 7] * rate * 255))},${Math.min(255, Math.round(arr[i + 8] * rate * 255))})`;
+                tris.push({ p: pts, d: depth / 3, c: color });
+            }
+        };
+        if (!this.focused)
+            addFaces(this.staticArr.length ? this.staticArr : env);
+        addFaces(verts);
+        tris.sort((a, b) => b.d - a.d);
+        ctx.save();
+        for (const t of tris) {
+            ctx.beginPath();
+            ctx.moveTo(...t.p[0]);
+            ctx.lineTo(...t.p[1]);
+            ctx.lineTo(...t.p[2]);
+            ctx.closePath();
+            ctx.fillStyle = t.c;
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+    destroy() { this.disposed = true; cancelAnimationFrame(this.raf); this.ro?.disconnect(); this.canvas.removeEventListener('pointerdown', this.down); this.canvas.removeEventListener('pointermove', this.move); this.canvas.removeEventListener('pointerup', this.up); this.canvas.removeEventListener('pointercancel', this.up); this.canvas.removeEventListener('wheel', this.wheel); if (this.contextLost)
+        this.canvas.removeEventListener('webglcontextlost', this.contextLost); if (this.gl) {
+        if (this.staticBuffer)
+            this.gl.deleteBuffer(this.staticBuffer);
+        if (this.dynamicBuffer)
+            this.gl.deleteBuffer(this.dynamicBuffer);
+        if (this.program)
+            this.gl.deleteProgram(this.program);
+    } }
+}
+
+function priceAnalysis(p) {
+    const variable = (p.taxa_percentual + p.imposto_percentual + p.ads_percentual) / 100;
+    const fixed = p.custo + p.frete + p.tarifa_fixa;
+    const divisor = 1 - variable - p.margem_minima / 100;
+    const valid = Object.values(p).every(v => v === null || (typeof v === "number" && Number.isFinite(v) && v >= 0)) && variable < 1 && divisor > 0;
+    if (!valid)
+        return { valid: false, minimum: null, profit: null, margin: null, suggested: null, status: "Parâmetros inválidos. Revise os custos e as taxas." };
+    const minimum = Math.ceil(fixed / divisor * 100) / 100;
+    const profit = p.preco_atual * (1 - variable) - fixed;
+    const margin = p.preco_atual > 0 ? profit / p.preco_atual * 100 : null;
+    let suggested = p.preco_atual;
+    let status = "Manter preço: não há referência competitiva recente validada.";
+    if (p.preco_atual < minimum) {
+        suggested = minimum;
+        status = "Preço atual abaixo da margem mínima configurada.";
+    }
+    else if (p.concorrente_preco !== null && p.concorrente_preco > 0) {
+        const comp = p.concorrente_preco;
+        if (comp < minimum) {
+            suggested = p.preco_atual;
+            status = "Concorrente abaixo do preço mínimo: não acompanhar uma possível venda sem margem.";
+        }
+        else if (comp < p.preco_atual) {
+            suggested = Math.max(minimum, Math.round((comp - .01) * 100) / 100);
+            status = "Preço competitivo estimado, sujeito a frete e condições equivalentes.";
+        }
+        else if (comp > p.preco_atual * 1.05) {
+            suggested = Math.min(comp - .01, Math.round(p.preco_atual * 1.05 * 100) / 100);
+            status = "Há espaço para testar aumento gradual com acompanhamento de conversão.";
+        }
+        else {
+            status = "Preço próximo da referência; considere prazo, reputação e frete.";
+        }
+    }
+    suggested = Math.max(0, Math.round(suggested * 100) / 100);
+    return { valid: true, minimum, profit, margin, suggested, status };
+}
+
+
+
+const $ = (id) => { const found = document.getElementById(id); if (!found)
+    throw new Error(`Elemento ausente: ${id}`); return found; };
+const brl = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const initials = (name) => name.trim().split(/\s+/).slice(0, 2).map(n => n[0] ?? "").join("").toUpperCase() || "MM";
+let current = "studio";
+let selected = "atlas";
+let missions = [];
+let moving = true;
+let scene = null;
+let focused = false;
+const pricing = { preco_atual: 79.9, custo: 36, frete: 6, tarifa_fixa: 1.5, taxa_percentual: 13, imposto_percentual: 7, ads_percentual: 2, margem_minima: 10, concorrente_preco: 75.9 };
+function show(screen) {
+    current = screen;
+    document.querySelectorAll("[data-screen]").forEach(el => el.hidden = el.dataset.screen !== screen);
+    document.querySelectorAll("[data-nav]").forEach(btn => btn.classList.toggle("is-current", btn.dataset.nav === screen));
+    $("pageTitle").textContent = { studio: "Sala da IA em 3D", overview: "Meu dia", analysis: "Análise Completa", price: "Price · Precificação", missions: "Missões" }[screen];
+    if (screen === "studio")
+        scene?.resize();
+    if (screen === "missions")
+        renderMissions();
+}
+function select(id) {
+    const found = MEMBERS.find(a => a.id === id);
+    if (!found)
+        return;
+    selected = id;
+    scene?.setSelected(id);
+    $("selectedName").textContent = found.name;
+    $("selectedRole").textContent = found.role;
+    $("selectedDescription").textContent = found.story;
+    $("selectedBadge").textContent = { atlas: "✦", max: "↗", luna: "◈", nexa: "⬡", vega: "✺", price: "◉" }[id];
+    $("selectedBadge").style.color = found.color;
+    $("selectedBadge").style.borderColor = found.color;
+    $("selectedTasks").replaceChildren(...found.tasks.map(t => { const el = document.createElement("li"); el.textContent = t; return el; }));
+    document.querySelectorAll("[data-agent]").forEach(b => b.classList.toggle("active", b.dataset.agent === id));
+    $("selectedName").style.color = found.color;
+}
+function createMission() {
+    const member = MEMBERS.find(a => a.id === selected);
+    const input = $("missionInput");
+    const title = input.value.trim() || member.tasks[0];
+    if (!title)
+        return;
+    missions.unshift({ id: Date.now(), agent: selected, text: title.slice(0, 180), done: false });
+    input.value = "";
+    renderMissions();
+    show("missions");
+}
+function renderMissions() {
+    const list = $("missionList");
+    list.replaceChildren();
+    if (missions.length === 0) {
+        const p = document.createElement("p");
+        p.textContent = "Nenhuma missão criada. Selecione um especialista para começar.";
+        list.append(p);
+        return;
+    }
+    for (const m of missions) {
+        const row = document.createElement("div");
+        row.className = "missionItem";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = m.done;
+        checkbox.setAttribute("aria-label", `Concluir missão: ${m.text}`);
+        checkbox.addEventListener("change", () => { m.done = checkbox.checked; renderMissions(); });
+        const text = document.createElement("span");
+        text.textContent = `${MEMBERS.find(a => a.id === m.agent)?.name ?? "Agente"} — ${m.text}`;
+        if (m.done)
+            text.style.textDecoration = "line-through";
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Excluir";
+        remove.addEventListener("click", () => { missions = missions.filter(x => x.id !== m.id); renderMissions(); });
+        row.append(checkbox, text, remove);
+        list.append(row);
+    }
+}
+function renderPrice() {
+    const analysis = priceAnalysis(pricing);
+    $("minimum").textContent = analysis.minimum === null ? "—" : brl(analysis.minimum);
+    $("suggested").textContent = analysis.suggested === null ? "—" : brl(analysis.suggested);
+    $("margin").textContent = analysis.margin === null ? "—" : `${analysis.margin.toFixed(1).replace(".", ",")}%`;
+    $("priceStatus").textContent = analysis.status;
+}
+function clock() { const d = new Date(); $("now").textContent = d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }); $("today").textContent = d.toLocaleDateString("pt-BR", { weekday: "short", day: "2-digit", month: "short", year: "numeric" }).replace(/\./g, ""); }
+function init() {
+    const labels = $("labels");
+    for (const member of MEMBERS) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.dataset.agent = member.id;
+        btn.dataset["3dAgent"] = "";
+        btn.style.setProperty("--agent", member.color);
+        btn.className = "mm3d-agent-label";
+        btn.title = `Selecionar ${member.name}`;
+        const strong = document.createElement("strong");
+        strong.textContent = member.name;
+        const small = document.createElement("small");
+        small.textContent = member.role;
+        btn.append(strong, small);
+        btn.addEventListener("click", () => select(member.id));
+        labels.append(btn);
+        const entry = document.createElement("button");
+        entry.type = "button";
+        entry.dataset.agent = member.id;
+        entry.className = "rosterBtn";
+        entry.style.setProperty("--agent", member.color);
+        entry.textContent = `${member.name} · ${member.role}`;
+        entry.addEventListener("click", () => select(member.id));
+        $("roster").append(entry);
+    }
+    const canvas = $("room");
+    try {
+        scene = new Room3D(canvas, labels, { selected, onSelect: select });
+        $("backend").textContent = scene.backend === "webgl" ? "WebGL ativo" : "Canvas compatível";
+    }
+    catch (e) {
+        $("backend").textContent = e instanceof Error ? e.message : "Cena indisponível";
+    }
+    select(selected);
+    document.querySelectorAll("[data-nav]").forEach(b => b.addEventListener("click", () => show(b.dataset.nav)));
+    $("focus").addEventListener("click", () => { focused = !!scene?.focus(); $("focus").textContent = focused ? "◈ Voltar à sala" : "◎ Focar agente"; });
+    $("reset").addEventListener("click", () => { scene?.reset(); focused = false; $("focus").textContent = "◎ Focar agente"; });
+    $("orbitL").addEventListener("click", () => scene?.orbit(-.25));
+    $("orbitR").addEventListener("click", () => scene?.orbit(.25));
+    $("plus").addEventListener("click", () => scene?.zoom(-2));
+    $("minus").addEventListener("click", () => scene?.zoom(2));
+    $("animate").addEventListener("click", () => { moving = !moving; scene?.setMotion(moving); $("animate").textContent = moving ? "● Animando" : "○ Pausado"; });
+    $("createMission").addEventListener("click", createMission);
+    $("createPriceMission").addEventListener("click", () => { select("price"); $("missionInput").value = "Revisar o preço da Creatina 300g considerando frete e concorrentes equivalentes"; createMission(); });
+    $("theme").addEventListener("click", () => { document.body.classList.toggle("light"); $("theme").textContent = document.body.classList.contains("light") ? "☾ Noturno" : "☼ Claro"; });
+    $("profileSave").addEventListener("click", () => { const value = $("profileName").value.trim().slice(0, 60); if (value) {
+        $("personName").textContent = value;
+        $("personAvatar").textContent = initials(value);
+    } });
+    document.querySelectorAll("[data-price]").forEach(input => input.addEventListener("input", () => { const key = input.dataset.price; const val = Number(input.value); pricing[key] = input.value === "" && key === "concorrente_preco" ? null : Number.isFinite(val) ? val : 0; renderPrice(); }));
+    clock();
+    window.setInterval(clock, 10000);
+    renderPrice();
+    show("studio");
+}
+if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", init);
+else
+    init();
+</script></body></html>

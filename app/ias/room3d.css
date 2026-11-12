@@ -1,0 +1,23 @@
+/* MM Intelligence — Sala 3D nativa, sem iframe */
+.hq-viewport .mm-studio-3d{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#153649,#071621 78%);border-radius:inherit;color:#effcff;isolation:isolate}
+.mm3d-canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline-offset:-4px}
+.mm3d-canvas:active{cursor:grabbing}.mm3d-canvas:focus-visible{outline:3px solid #44edcc}
+.mm3d-labels{position:absolute;inset:0;pointer-events:none;z-index:3}
+.mm3d-agent-label{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);padding:7px 11px;border:1px solid var(--agent);border-radius:11px;background:#071925e8;color:#f8ffff;box-shadow:0 7px 24px #0009;white-space:nowrap;text-align:center;cursor:pointer;font:inherit;min-width:74px;line-height:1.15}
+.mm3d-agent-label strong{display:block;font-size:12px}.mm3d-agent-label small{display:block;color:#bdd6df;font-size:10px;margin-top:3px}
+.mm3d-agent-label.selected{background:var(--agent);color:#051626;box-shadow:0 0 0 2px #ffffff73,0 7px 22px #0008}.mm3d-agent-label.selected small{color:#17334a}
+.mm3d-agent-label:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.mm3d-topline{position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:8px;z-index:4;pointer-events:none}
+.mm3d-pill,.mm3d-backend{display:inline-flex;align-items:center;gap:7px;border:1px solid #477787;padding:7px 10px;border-radius:99px;background:#061b28e8;color:#d4f6f4;font-weight:750;font-size:10px;letter-spacing:.06em}
+.mm3d-backend{letter-spacing:0;color:#cadde3;border-color:#355566;font-weight:500}
+.mm3d-pulse{width:7px;height:7px;border-radius:50%;background:#4ce9c4;box-shadow:0 0 9px #4ce9c4}
+.mm3d-toolbar{position:absolute;top:11px;right:12px;z-index:5;display:flex;align-items:center;gap:5px;border:1px solid #356374;border-radius:13px;padding:5px;background:#071d2bdc;box-shadow:0 10px 28px #0007}
+.mm3d-toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:28px;min-height:31px;border:1px solid transparent;background:#173344;color:#e7fbff;border-radius:8px;font:inherit;font-size:10px;font-weight:750;cursor:pointer;padding:5px 7px}
+.mm3d-toolbar button:hover,.mm3d-toolbar button[aria-pressed="true"]{color:#061c23;background:#55e7c7}
+.mm3d-toolbar button:focus-visible{outline:2px solid #f4ffff;outline-offset:2px}
+.mm3d-footer{position:absolute;bottom:11px;left:12px;right:12px;display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;border:1px solid #315463;background:#071b28dd;color:#d3e6ed;border-radius:9px;padding:8px 10px;font-size:10px;pointer-events:none;z-index:2}
+.mm3d-footer strong{color:#61ebcb}.mm3d-error{position:absolute;left:10%;right:10%;bottom:20%;padding:16px;border-radius:12px;border:1px solid #ffb77e;background:#442720;color:#fff;font-size:13px;text-align:center;z-index:6}
+.mm3d-screenreader{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:1020px){.mm3d-backend{display:none}}
+@media(max-width:700px){.hq-viewport .mm-studio-3d{min-height:350px}.mm3d-topline{top:7px;left:7px}.mm3d-toolbar{top:7px;right:7px;gap:2px}.mm3d-toolbar button{min-width:25px;min-height:29px;padding:4px}.mm3d-toolbar button span{display:none}.mm3d-agent-label{padding:6px 8px;min-width:55px}.mm3d-agent-label strong{font-size:10px}.mm3d-agent-label small{font-size:9px}.mm3d-footer{font-size:9px;bottom:7px;left:7px;right:7px}}
+@media(prefers-reduced-motion:reduce){.mm3d-pulse{box-shadow:none}}
